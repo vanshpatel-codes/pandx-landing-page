@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=cabinet-grotesk@100,200,300,400,500,700,800&f[]=general-sans@200,300,400,500,600,700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-clash: "Clash Display", sans-serif;
+  --font-cabinet: "Cabinet Grotesk", sans-serif;
+  --font-general: "General Sans", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+/* Custom Base Resets and Utilities */
+@layer base {
+  html, body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Modern clean scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+  }
+
+  /* Text elements select color flip */
+  ::selection {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Custom visual utilities for luxury micro-details */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Smooth continuous horizontal scrolling */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
